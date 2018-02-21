@@ -3,20 +3,20 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.weli</groupId>
     <artifactId>swagger-resteasy</artifactId>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <properties>
-        <swagger-version>1.5.10</swagger-version>
-        <junit-version>4.8.1</junit-version>
-        <resteasy.ver>4.0.0-SNAPSHOT</resteasy.ver>
-        <undertow.ver>1.4.18.Final</undertow.ver>
-        <jaxrs.ver>1.0.0.Final</jaxrs.ver>
+        <swagger.version>1.5.10</swagger.version>
+        <junit.version>4.8.1</junit.version>
+        <resteasy.version>4.0.0-SNAPSHOT</resteasy.version>
+        <undertow.version>1.4.18.Final</undertow.version>
+        <jaxrs.version>1.0.0.Final</jaxrs.version>
     </properties>
     <dependencies>
         <dependency>
             <groupId>io.swagger</groupId>
             <artifactId>swagger-jaxrs</artifactId>
-            <version>${swagger-version}</version>
+            <version>${swagger.version}</version>
             <exclusions>
                 <exclusion>
                     <groupId>javax.ws.rs</groupId>
@@ -27,37 +27,42 @@
         <dependency>
             <groupId>org.jboss.spec.javax.ws.rs</groupId>
             <artifactId>jboss-jaxrs-api_2.1_spec</artifactId>
-            <version>${jaxrs.ver}</version>
+            <version>${jaxrs.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-undertow</artifactId>
-            <version>${resteasy.ver}</version>
+            <version>${resteasy.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-jaxrs</artifactId>
-            <version>${resteasy.ver}</version>
+            <version>${resteasy.version}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-multipart-provider</artifactId>
-            <version>${resteasy.ver}</version>
+            <version>${resteasy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-servlet-initializer</artifactId>
+            <version>${resteasy.version}</version>
         </dependency>
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-servlet</artifactId>
-            <version>${undertow.ver}</version>
+            <version>${undertow.version}</version>
         </dependency>
         <dependency>
             <groupId>io.undertow</groupId>
             <artifactId>undertow-core</artifactId>
-            <version>${undertow.ver}</version>
+            <version>${undertow.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>${junit-version}</version>
+            <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>		
     </dependencies>
