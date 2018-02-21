@@ -178,7 +178,6 @@ public class PiasApi {
     @io.swagger.annotations.ApiOperation(value = "", notes = "deletes a single PIA based on the ID supplied", response = Void.class, tags = {})
     @io.swagger.annotations.ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 204, message = "PIA deleted", response = Void.class),
-
             @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Void.class)})
     public Response deletePia(MultipartFormDataInput input, @PathParam("id") Long id, @Context SecurityContext securityContext)
             throws NotFoundException {
@@ -192,7 +191,6 @@ public class PiasApi {
     @io.swagger.annotations.ApiOperation(value = "", notes = "Duplicate a PIA", response = Pia.class, tags = {})
     @io.swagger.annotations.ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 200, message = "PIA response", response = Pia.class),
-
             @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Pia.class)})
     public Response duplicateId(MultipartFormDataInput input, @PathParam("id") Long id, @Context SecurityContext securityContext)
             throws NotFoundException {
@@ -206,7 +204,6 @@ public class PiasApi {
     @io.swagger.annotations.ApiOperation(value = "", notes = "Returns an answer", response = Answer.class, tags = {})
     @io.swagger.annotations.ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 200, message = "answer response", response = Answer.class),
-
             @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Answer.class)})
     public Response findAnAnswerById(MultipartFormDataInput input, @PathParam("pia_id") Long piaId, @PathParam("id") Long id, @Context SecurityContext securityContext)
             throws NotFoundException {
@@ -220,7 +217,6 @@ public class PiasApi {
     @io.swagger.annotations.ApiOperation(value = "", notes = "Returns an attachment", response = Attachment.class, tags = {})
     @io.swagger.annotations.ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 200, message = "attachment response", response = Attachment.class),
-
             @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Attachment.class)})
     public Response findAnAttachmentById(MultipartFormDataInput input, @PathParam("pia_id") Long piaId, @PathParam("id") Long id, @Context SecurityContext securityContext)
             throws NotFoundException {
@@ -368,7 +364,6 @@ public class PiasApi {
     @io.swagger.annotations.ApiOperation(value = "", notes = "Returns all PIAs.", response = Pia.class, responseContainer = "List", tags = {})
     @io.swagger.annotations.ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 200, message = "all PIAs index", response = Pia.class, responseContainer = "List"),
-
             @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Pia.class, responseContainer = "List")})
     public Response listPias(MultipartFormDataInput input, @QueryParam("export") Boolean export, @QueryParam("sorting[column]") String sortingColumn, @QueryParam("sorting[direction]") String sortingDirection, @Context SecurityContext securityContext)
             throws NotFoundException {
@@ -382,7 +377,6 @@ public class PiasApi {
     @io.swagger.annotations.ApiOperation(value = "", notes = "Update a answer", response = Answer.class, tags = {})
     @io.swagger.annotations.ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 200, message = "answer response", response = Answer.class),
-
             @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Answer.class)})
     public Response updateAnswer(MultipartFormDataInput input, @PathParam("pia_id") Long piaId, @PathParam("id") Integer id, @ApiParam(value = "fields to update", required = true) SampleAnswer body, @Context SecurityContext securityContext)
             throws NotFoundException {
@@ -396,7 +390,6 @@ public class PiasApi {
     @io.swagger.annotations.ApiOperation(value = "", notes = "Update a PIA", response = Pia.class, tags = {})
     @io.swagger.annotations.ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 200, message = "PIA response", response = Pia.class),
-
             @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Pia.class)})
     public Response updatePia(MultipartFormDataInput input, @PathParam("id") Integer id, @ApiParam(value = "fields to update", required = true) SamplePia body, @Context SecurityContext securityContext)
             throws NotFoundException {
@@ -424,7 +417,6 @@ public class PiasApi {
     @io.swagger.annotations.ApiOperation(value = "", notes = "Update a evaluation", response = Evaluation.class, tags = {})
     @io.swagger.annotations.ApiResponses(value = {
             @io.swagger.annotations.ApiResponse(code = 200, message = "evaluation response", response = Evaluation.class),
-
             @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Evaluation.class)})
     public Response updateevaluation(MultipartFormDataInput input, @PathParam("pia_id") Long piaId, @PathParam("id") Integer id, @ApiParam(value = "fields to update", required = true) SampleEvaluation body, @Context SecurityContext securityContext)
             throws NotFoundException {
