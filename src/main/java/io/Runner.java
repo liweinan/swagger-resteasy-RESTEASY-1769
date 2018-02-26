@@ -14,8 +14,6 @@ public class Runner {
 
     public static void main(String[] args) {
         try {
-
-
             Collection<MimeMapping> mimeTypes = new ArrayList<MimeMapping>();
 
             // au besoin : http://www.webmaster-toolkit.com/mime-types.shtml
@@ -34,14 +32,10 @@ public class Runner {
             mimeTypes.add(new MimeMapping("ogg", "video/ogg"));
             mimeTypes.add(new MimeMapping("webm", "video/webm"));
 
-
-
-
             UndertowJaxrsServer server = new UndertowJaxrsServer();
 
             ResteasyDeployment deployment = new ResteasyDeployment();
             deployment.setApplicationClass(ApplicationTest.class.getName());
-
 
             DeploymentInfo deploymentInfo = server.undertowDeployment(deployment, "/")
                     .setClassLoader(Runner.class.getClassLoader())
@@ -50,18 +44,11 @@ public class Runner {
                     .addMimeMappings(mimeTypes);
             server.deploy(deploymentInfo);
 
-
-
             Undertow.Builder serverBuilder = Undertow.builder().addHttpListener(8080, "0.0.0.0");
             server.start(serverBuilder);
-
-
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
-
         }
     }
-
-
 }
