@@ -21,3 +21,85 @@ $ curl 'http://127.0.0.1:8080/swagger-resteasy-1.0-SNAPSHOT/pias' -H 'Origin: ht
 java.io.IOException: Stream closed$
 ```
 
+Decoded request is like this:
+
+```txt
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[name]"
+
+jgh vhbv
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[author_name]"
+
+jhbhb
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[evaluator_name]"
+
+hjb
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[validator_name]"
+
+hjbjhb
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[dpo_status]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[dpo_opinion]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[concerned_people_opinion]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[concerned_people_status]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[rejected_reason]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[applied_adjustements]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[created_at]"
+
+Wed Dec 13 2017 11:13:03 GMT+0100 (CET)
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[updated_at]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[status]"
+
+0
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[dpos_names]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL
+Content-Disposition: form-data; name="pia[people_names]"
+
+undefined
+------WebKitFormBoundaryfDLIArfCQoCAKctL--
+```
+
+But we don't have to use above complex data to generate the problem. Here's the simplified request:
+
+```bash
+$ curl 'http://localhost:8080/api/pias' \
+-H 'Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryfDLIArfCQoCAKctL' \
+--data-binary $'------WebKitFormBoundaryfDLIArfCQoCAKctL\r\nContent-Disposition: form-data; name="pia[name]"\r\n\r\njgh vhbv\r\n------WebKitFormBoundaryfDLIArfCQoCAKctL\r\n'
+```
+
+It can also reproduce the problem:
+
+```bash
+java.io.IOException: UT010029: Stream is closed$
+```
+
+work in progress...
+
