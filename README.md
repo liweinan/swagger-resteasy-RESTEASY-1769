@@ -98,7 +98,8 @@ $ curl 'http://localhost:8080/api/pias' \
 It can also reproduce the problem:
 
 ```bash
-java.io.IOException: UT010029: Stream is closed$
+java.io.IOException: UT010029: Stream is closed
+$
 ```
 
 work in progress...
