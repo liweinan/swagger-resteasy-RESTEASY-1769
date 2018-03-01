@@ -23,13 +23,12 @@ public class PiasApi {
     @POST
     @Consumes({"multipart/form-data"})
     @Produces({"application/json"})
-    @io.swagger.annotations.ApiOperation(value = "", notes = "Creates a new PIA", response = Pia.class, tags = {})
-    @io.swagger.annotations.ApiResponses(value = {
-            @io.swagger.annotations.ApiResponse(code = 200, message = "PIA response", response = Pia.class),
-
-            @io.swagger.annotations.ApiResponse(code = 200, message = "unexpected error", response = Pia.class)})
-    public Response addPia(MultipartFormDataInput input, @ApiParam(value = "PIA to add", required = true) @MultipartForm SamplePia body, @Context SecurityContext securityContext)
+    public Response addPia(@MultipartForm SamplePia body)
             throws NotFoundException {
-        return delegate.addPia(input, body, securityContext);
+        System.out.println("------- START OF ADD PIA -------");
+        System.out.println(body);
+        System.out.println("------- END OF ADD PIA -------");
+        return Response.status(200).build();
+
     }
 }
