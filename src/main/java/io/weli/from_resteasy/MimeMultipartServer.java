@@ -20,7 +20,7 @@ public class MimeMultipartServer {
 
         server.deploy(deploymentInfo);
 
-        Undertow.Builder serverBuilder = Undertow.builder().addHttpListener(8080, "0.0.0.0");
+        Undertow.Builder serverBuilder = Undertow.builder().addHttpListener(8080, "127.0.0.1");
         server.start(serverBuilder);
     }
 }

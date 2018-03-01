@@ -28,7 +28,7 @@ public class MimeMultipartProviderTest {
             mpfdo.addFormData("part1", "This is Value 1", MediaType.TEXT_PLAIN_TYPE);
             mpfdo.addFormData("part2", "This is Value 2", MediaType.TEXT_PLAIN_TYPE);
 
-            Response response = client.target("http://0.0.0.0:8080/mime").request()
+            Response response = client.target("http://127.0.0.1:8080/mime").request()
                     .put(Entity.entity(mpfdo, MediaType.MULTIPART_FORM_DATA_TYPE));
             Assert.assertEquals(HttpResponseCodes.SC_OK, response.getStatus());
             String responseBody = response.readEntity(String.class);
