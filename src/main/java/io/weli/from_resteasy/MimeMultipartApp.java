@@ -15,6 +15,7 @@ public class MimeMultipartApp extends Application {
         HashSet<Object> set = new HashSet<Object>();
 
         set.add(new MimeMultipartProviderResource());
+        set.add(new MimeResourceTwo());
         return set;
     }
 }
