@@ -8,20 +8,22 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import io.swagger.model.Pia;
 
 import javax.validation.constraints.*;
+import javax.ws.rs.FormParam;
 
 import io.swagger.annotations.*;
 import org.jboss.resteasy.annotations.providers.multipart.MultipartForm;
+import org.jboss.resteasy.annotations.providers.multipart.PartType;
 
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaResteasyServerCodegen", date = "2017-12-12T19:59:48.486+01:00")
 public class SamplePia {
-
+    @FormParam("pia")
+    @PartType("application/json")
     private Pia pia = null;
 
     /**
      * test
      **/
-
     @ApiModelProperty(required = true, value = "test")
     @JsonProperty("pia")
     @NotNull
@@ -32,8 +34,7 @@ public class SamplePia {
     public void setPia(Pia pia) {
         this.pia = pia;
     }
-
-
+    
     @Override
     public boolean equals(Object o) {
         if (this == o) {
