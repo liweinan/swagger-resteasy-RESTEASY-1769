@@ -24,9 +24,28 @@ public class Runner {
                     .setContextPath("/api/")
                     .setDeploymentName("test");
 
+
+
+            // 这行代码以后，下面的代码就不会抛出NullPointerException。
+            // 说明这里的过程会把providers注册进ProviderFactory。
             server.deploy(deploymentInfo);
 
+            {
+                System.out.println("=== PROVIDER CLASSES ===");
+
+                for (Class clazz : deployment.getProviderFactory().getProviderClasses()) {
+                    System.out.println(clazz);
+                }
+
+                System.out.println("\n=== PROVIDER INSTANCES ===");
+
+                for (Object obj : deployment.getProviderFactory().getProviderInstances()) {
+                    System.out.println(obj);
+                }
+            }
+
             Undertow.Builder serverBuilder = Undertow.builder().addHttpListener(8080, "127.0.0.1");
+
             server.start(serverBuilder);
         } catch (Exception e) {
             e.printStackTrace();
