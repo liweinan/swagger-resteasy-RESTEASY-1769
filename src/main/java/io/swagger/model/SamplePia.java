@@ -19,12 +19,13 @@ import org.jboss.resteasy.annotations.providers.multipart.PartType;
 public class SamplePia {
     @FormParam("pia")
     @PartType("application/json")
-    private Pia pia = null;
+    private Pia pia;
+//    private Pia pia = null;
 
     /**
      * 我觉得下面的这些标记不太对。
+     * 先给注释掉。
      **/
-    // 先把这里注释掉
 //    @ApiModelProperty(required = true, value = "test")
 //    @JsonProperty("pia")
 //    @NotNull
@@ -35,7 +36,11 @@ public class SamplePia {
 //    public void setPia(Pia pia) {
 //        this.pia = pia;
 //    }
-    
+
+    public Pia getPia() {
+        return pia;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
