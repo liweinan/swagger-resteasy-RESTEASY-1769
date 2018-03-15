@@ -22,18 +22,19 @@ public class SamplePia {
     private Pia pia = null;
 
     /**
-     * test
+     * 我觉得下面的这些标记不太对。
      **/
-    @ApiModelProperty(required = true, value = "test")
-    @JsonProperty("pia")
-    @NotNull
-    public Pia getPia() {
-        return pia;
-    }
-
-    public void setPia(Pia pia) {
-        this.pia = pia;
-    }
+    // 先把这里注释掉
+//    @ApiModelProperty(required = true, value = "test")
+//    @JsonProperty("pia")
+//    @NotNull
+//    public Pia getPia() {
+//        return pia;
+//    }
+//
+//    public void setPia(Pia pia) {
+//        this.pia = pia;
+//    }
     
     @Override
     public boolean equals(Object o) {
